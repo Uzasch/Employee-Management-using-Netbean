@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Uni Connect</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            padding: 10px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #fff;
+        }
+
+        nav {
+            background-color: #4caf50;
+            padding: 10px;
+            display: flex;
+            font-size: 20px;
+            justify-content: space-around;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #45a049;
+        }
+
+        section {
+            padding: 20px;
+            background-color: #fff;
+            margin: 10px 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1, h2, h3 {
+            color: #333;
+        }
+
+        h2 {
+            font-size: 2em;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            color: #4caf50;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input {
+            width: calc(100% - 16px);
+            padding: 8px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 16px;
+            width: 100%;
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Uni Connect</h1>
+    </header>
+
+    <nav>
+        <a href="#students">Students</a>
+        <a href="#colleges">Colleges</a>
+        <a href="#courses">Courses</a>
+        <a href="#courseDetails">Course Details</a>
+        <a href="#availableCourses">Available Courses</a>
+    </nav>
+
+    <section id="students">
+        <h2>Students</h2>
+        <p>Explore and add information about students here.</p>
+        <form action="studentserver" method="post">
+            <h3>NEW STUDENT</h3>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="country">Country</label>
+            <input type="text" id="country" name="country" required>
+
+            <button type="submit">ADD</button>
+        </form>
+    </section>
+
+    <section id="colleges">
+        <h2>Student College</h2>
+        <p>Add information about your college here.</p>
+        <form action="collegeserver" method="post">
+           <label for="rollNo">Roll No</label>
+           <input type="text" id="rollNo" name="rollNo" required>
+
+           <label for="name">Name</label>
+           <input type="text" id="name" name="name" required>
+
+           <label for="email">Email</label>
+           <input type="email" id="email" name="email" required>
+
+           <label for="college">College Name</label>
+           <input type="text" id="college" name="college" required>
+
+           <button type="submit">ADD</button>
+        </form>
+    </section>
+
+    <section id="courses">
+        <h2>Courses</h2>
+        <p>Add information about your course here.</p>
+        <form action="courseserver" method="post">
+            <h3>COURSE</h3>
+            <label for="rollNo">Roll No</label>
+            <input type="text" id="rollNo" name="rollNo" required>
+            <label for="coursename">Course Name</label>
+            <input type="text" id="coursename" name="coursename" required>
+
+            <label for="courseduration">Duration</label>
+            <input type="text" id="courseduration" name="courseduration" required>
+
+            <button type="submit">ADD</button>
+        </form>
+    </section>
+
+    <section id="courseDetails">
+        <h2>Course Details</h2>
+        <p>Add details about your courses here.</p>
+        <form action="coursedetailserver" method="post">
+            <h3>NEW COURSE DETAIL</h3>
+            <label for="coursedetailcourse">Course</label>
+            <input type="text" id="coursedetailcourse" name="coursedetailcourse" required>
+
+            <label for="subject1">Subject 1</label>
+            <input type="text" id="subject1" name="subject1" required>
+
+            <label for="subject2">Subject 2</label>
+            <input type="text" id="subject2" name="subject2" required>
+
+            <label for="subject3">Subject 3</label>
+            <input type="text" id="subject3" name="subject3" required>
+
+            <button type="submit">ADD</button>
+        </form>
+    </section>
+
+    <section id="availableCourses">
+    <h2>Available Courses</h2>
+    <p>Check out available courses and their details here.</p>
+    <form action="availablecoursesserver" method="post">
+        <h3>AVAILABLE COURSE</h3>
+        <label for="College_Course_ID">College_Course_ID</label>
+        <input type="text" id="College_Course_ID" name="College_Course_ID" required>
+
+        <label for="college">College</label>
+        <input type="text" id="college" name="college" required>
+
+        <label for="availablecourse">Course</label>
+        <input type="text" id="availablecourse" name="availablecourse" required>
+
+        <label for="fees">Fees</label>
+        <input type="text" id="fees" name="fees" required>
+
+        <button type="submit">ADD</button>
+    </form>
+</section>
+
+</body>
+
+</html>

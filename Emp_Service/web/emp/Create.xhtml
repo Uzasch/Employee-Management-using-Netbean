@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateEmpTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:head>
+                <title>Employee Management System- Create</title>
+                <style type="text/css">
+                   body {
+                        font-family: 'Times New Roman', Times, serif;
+                        background-color: #E0FFFF; /* Light cyan background */
+                        margin: 0;
+                        padding: 0;
+                        height: 100vh; /* Full viewport height */
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    /* Form Container Styles */
+                    .form-container {
+                        width: 80%;
+                        max-width: 800px;
+                        padding: 40px;
+                        background-color: #20B2AA; /* Light sea green background */
+                        border-radius: 12px;
+                        box-shadow: 0 0 20px rgba(0,0,0,0.3);
+                        color: #F5F5F5; /* Light grey text */
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                    }
+                    /* Header Styles */
+                    h1 {
+                        color: #F5F5F5; /* Light grey text */
+                        text-align: center;
+                        margin: 0 0 30px 0;
+                        font-size: 36px; /* Increased font size */
+                        font-weight: bold;
+                    }
+
+                    /* Form Label Styles */
+                    .form-label {
+                        display: block;
+                        margin-bottom: 8px;
+                        font-size: 18px;
+                        color: #F5F5F5; /* Light grey text */
+                    }
+
+                    /* Form Input Styles */
+                    .form-input {
+                        width: 100%;
+                        padding: 12px;
+                        margin-bottom: 20px;
+                        border-radius: 5px;
+                        border: 1px solid #ccc;
+                        font-size: 16px;
+                        color: #333;
+                    }
+
+                    /* Button Styles */
+                    .button-link {
+                        display: inline-block;
+                        padding: 14px 30px;
+                        margin: 10px 5px;
+                        font-size: 18px;
+                        font-weight: bold;
+                        color: #20B2AA; /* Light sea green text */
+                        background-color: #E0FFFF; /* Light cyan background */
+                        border: none;
+                        border-radius: 5px;
+                        text-decoration: none;
+                        transition: background-color 0.3s, transform 0.2s;
+                        cursor: pointer;
+                        text-align: center;
+                    }
+
+                    .button-link:hover {
+                        background-color: #B0E0E6; /* Light steel blue */
+                        transform: scale(1.05);
+                    }
+
+                    .button-link:active {
+                        background-color: #87CEEB; /* Light sky blue */
+                        transform: scale(1);
+                    }
+
+                    /* Form Grid Styles */
+                    h:panelGrid {
+                        width: 100%;
+                    }
+                </style>
+            </h:head>
+            <h:panelGroup layout="block" styleClass="form-container">
+                <h1>Create New Employee</h1>
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:form>
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="#{bundle.CreateEmpLabel_id}" for="id" styleClass="form-label"/>
+                        <h:inputText id="id" value="#{empController.selected.id}" title="#{bundle.CreateEmpTitle_id}" styleClass="form-input"/>
+                        <h:outputLabel value="#{bundle.CreateEmpLabel_emp_id}" for="emp_id" styleClass="form-label"/>
+                        <h:inputText id="emp_id" value="#{empController.selected.emp_id}" title="#{bundle.CreateEmpTitle_emp_id}" styleClass="form-input"/>
+                        <h:outputLabel value="#{bundle.CreateEmpLabel_emp_name}" for="emp_name" styleClass="form-label"/>
+                        <h:inputText id="emp_name" value="#{empController.selected.emp_name}" title="#{bundle.CreateEmpTitle_emp_name}" styleClass="form-input"/>
+                        <h:outputLabel value="#{bundle.CreateEmpLabel_emp_Dept}" for="emp_Dept" styleClass="form-label"/>
+                        <h:inputText id="emp_Dept" value="#{empController.selected.emp_Dept}" title="#{bundle.CreateEmpTitle_emp_Dept}" styleClass="form-input"/>
+                        <h:outputLabel value="#{bundle.CreateEmpLabel_emp_Sal}" for="emp_Sal" styleClass="form-label"/>
+                        <h:inputText id="emp_Sal" value="#{empController.selected.emp_Sal}" title="#{bundle.CreateEmpTitle_emp_Sal}" styleClass="form-input"/>
+                        <h:outputLabel value="#{bundle.CreateEmpLabel_emp_Add}" for="emp_Add" styleClass="form-label"/>
+                        <h:inputText id="emp_Add" value="#{empController.selected.emp_Add}" title="#{bundle.CreateEmpTitle_emp_Add}" styleClass="form-input"/>
+                    </h:panelGrid>
+                    <br />
+                    <h:commandLink action="#{empController.create}" value="#{bundle.CreateEmpSaveLink}" styleClass="button-link"/>
+                    <h:commandLink action="#{empController.prepareList}" value="#{bundle.CreateEmpShowAllLink}" immediate="true" styleClass="button-link"/>
+                    <h:link outcome="/index" value="#{bundle.CreateEmpIndexLink}" styleClass="button-link"/>
+                </h:form>
+            </h:panelGroup>
+        </ui:define>
+    </ui:composition>
+
+</html>

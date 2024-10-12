@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewEmpTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:head>
+                <title>Employee Management - View</title>
+                <style type="text/css">
+                    /* General Styles */
+                    body {
+                        font-family: 'Times New Roman', Times, serif;
+                        background-color: #E0FFFF; /* Light cyan background */
+                        margin: 0;
+                        padding: 0;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 100vh; /* Full viewport height */
+                    }
+
+                    /* Form Container Styles */
+                    .form-container {
+                        width: 80%;
+                        max-width: 800px;
+                        padding: 40px;
+                        background-color: #20B2AA; /* Light sea green background */
+                        border-radius: 12px;
+                        box-shadow: 0 0 20px rgba(0,0,0,0.3);
+                        color: #F5F5F5; /* Light grey text */
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                    }
+
+                    /* Header Styles */
+                    h1 {
+                        color: #F5F5F5; /* Light grey text */
+                        text-align: center;
+                        margin: 0 0 30px 0;
+                        font-size: 36px; /* Increased font size */
+                        font-weight: bold;
+                    }
+
+                    /* Output Text Styles */
+                    h\\:outputText {
+                        display: block;
+                        font-size: 28px; /* Increased font size */
+                        margin-bottom: 10px;
+                        color: #F5F5F5; /* Light grey text */
+                    }
+
+                    /* Button Styles */
+                    .button-link {
+                        display: inline-block;
+                        padding: 14px 30px;
+                        margin: 10px 5px;
+                        font-size: 18px;
+                        font-weight: bold;
+                        color: #20B2AA; /* Light sea green text */
+                        background-color: #E0FFFF; /* Light cyan background */
+                        border: none;
+                        border-radius: 5px;
+                        text-decoration: none;
+                        transition: background-color 0.3s, transform 0.2s;
+                        cursor: pointer;
+                        text-align: center;
+                    }
+
+                    .button-link:hover {
+                        background-color: #B0E0E6; /* Light steel blue */
+                        transform: scale(1.05);
+                    }
+
+                    .button-link:active {
+                        background-color: #87CEEB; /* Light sky blue */
+                        transform: scale(1);
+                    }
+
+                    /* Form Grid Styles */
+                    h\\:panelGrid {
+                        width: 100%;
+                    }
+                </style>
+            </h:head>
+            <h:panelGroup layout="block" styleClass="form-container">
+                <h1>View Employee</h1>
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:form>
+                    <h:panelGrid columns="2">
+                        <h:outputText value="#{bundle.ViewEmpLabel_id}" styleClass="form-label"/>
+                        <h:outputText value="#{empController.selected.id}" title="#{bundle.ViewEmpTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewEmpLabel_emp_id}" styleClass="form-label"/>
+                        <h:outputText value="#{empController.selected.emp_id}" title="#{bundle.ViewEmpTitle_emp_id}"/>
+                        <h:outputText value="#{bundle.ViewEmpLabel_emp_name}" styleClass="form-label"/>
+                        <h:outputText value="#{empController.selected.emp_name}" title="#{bundle.ViewEmpTitle_emp_name}"/>
+                        <h:outputText value="#{bundle.ViewEmpLabel_emp_Dept}" styleClass="form-label"/>
+                        <h:outputText value="#{empController.selected.emp_Dept}" title="#{bundle.ViewEmpTitle_emp_Dept}"/>
+                        <h:outputText value="#{bundle.ViewEmpLabel_emp_Sal}" styleClass="form-label"/>
+                        <h:outputText value="#{empController.selected.emp_Sal}" title="#{bundle.ViewEmpTitle_emp_Sal}"/>
+                        <h:outputText value="#{bundle.ViewEmpLabel_emp_Add}" styleClass="form-label"/>
+                        <h:outputText value="#{empController.selected.emp_Add}" title="#{bundle.ViewEmpTitle_emp_Add}"/>
+                    </h:panelGrid>
+                    <h:commandLink action="#{empController.destroyAndView}" value="#{bundle.ViewEmpDestroyLink}" styleClass="button-link"/>
+                    <h:link outcome="Edit" value="#{bundle.ViewEmpEditLink}" styleClass="button-link"/>
+                    <h:commandLink action="#{empController.prepareCreate}" value="#{bundle.ViewEmpCreateLink}" styleClass="button-link"/>
+                    <h:commandLink action="#{empController.prepareList}" value="#{bundle.ViewEmpShowAllLink}" styleClass="button-link"/>
+                    <h:link outcome="/index" value="#{bundle.ViewEmpIndexLink}" styleClass="button-link"/>
+                </h:form>
+            </h:panelGroup>
+        </ui:define>
+    </ui:composition>
+
+</html>

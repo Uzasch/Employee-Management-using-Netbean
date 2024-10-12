@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <title>Employee Management System</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+        <style type="text/css">
+            /* General Styles */
+            body {
+                font-family: 'Times New Roman', Times, serif;
+                background-color: #87CEEB; /* Skyblue background */
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh; /* Full viewport height */
+            }
+
+            /* Flex Container Styles */
+            .main-container {
+                display: flex;
+                width: 80%;
+                justify-content: flex-start; /* Aligns content to the start */
+                align-items: center;
+            }
+
+            /* Image Styles */
+            .image {
+                width: 50%; /* Image takes up half the screen */
+                height: auto;
+                object-fit: cover;
+            }
+
+            /* Container Styles */
+            .container {
+                width: 40%; /* Reduced container width */
+                padding: 30px; /* Reduced padding */
+                margin-left: 20px; /* Adds space between image and container */
+                background-color: #008080; /* Teal background */
+                border-radius: 12px;
+                box-shadow: 0 0 20px rgba(0,0,0,0.3);
+                text-align: center;
+                color: #F5F5F5; /* Light grey text */
+                font-size: 18px;
+            }
+
+            /* Header Styles */
+            h1 {
+                color: #F5F5F5; /* Light grey text */
+                text-align: center;
+                margin: 20px 0;
+                font-size: 28px;
+                font-weight: bold;
+            }
+
+            /* Button Styles */
+            .button {
+                display: inline-block;
+                padding: 14px 30px;
+                margin: 20px 0;
+                font-size: 20px;
+                font-weight: bold;
+                color: #008080; /* Teal text */
+                background-color: #E0FFFF; /* Light cyan background */
+                border: none;
+                border-radius: 6px;
+                text-decoration: none;
+                transition: background-color 0.3s, transform 0.2s;
+                cursor: pointer;
+            }
+
+            .button:hover {
+                background-color: #B0E0E6; /* Light steel blue */
+                transform: scale(1.05);
+            }
+
+            .button:active {
+                background-color: #87CEFA; /* Light sky blue */
+                transform: scale(1);
+            }
+
+            /* Spacing */
+            .spacing {
+                margin: 30px 0;
+            }
+        </style>
+    </h:head>
+
+    <h:body>
+        <div class="main-container">
+            <!-- Image -->
+            <img src="#{resource['images/empimg.png']}" alt="Employee Management" class="image"/>
+
+            <!-- Text Container -->
+            <div class="container">
+                <h1>Employee Management System</h1>
+                <div class="spacing">
+                    <h:link outcome="/emp/List" value="Show All Employee Details" styleClass="button"/>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>
